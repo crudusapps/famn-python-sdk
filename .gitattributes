@@ -1,0 +1,49 @@
+# Mark designer source formats as binary so text-handling hooks (e.g.,
+# trailing-whitespace) skip them. The pre-commit `trailing-whitespace`
+# hook respects git's binary detection — without this it corrupts the
+# zip stream of a .pxd by stripping bytes that look like trailing space.
+*.pxd binary
+
+# Go — gofmt emits LF; go-fmt and go-mod-tidy hooks rewrite these
+*.go            text eol=lf
+go.mod          text eol=lf
+go.sum          text eol=lf
+*.proto         text eol=lf
+
+# Frontend (Astro + Vue 3 + TypeScript) — prettier emits LF
+*.ts            text eol=lf
+*.js            text eol=lf
+*.mjs           text eol=lf
+*.cjs           text eol=lf
+*.vue           text eol=lf
+*.astro         text eol=lf
+*.css           text eol=lf
+*.json          text eol=lf
+*.arb           text eol=lf
+
+# Config, docs, scripts — trailing-whitespace and lint-yaml (prettier) hooks
+*.yml           text eol=lf
+*.yaml          text eol=lf
+*.yaml.tpl      text eol=lf
+*.md            text eol=lf
+*.sql           text eol=lf
+*.sh            text eol=lf
+Makefile        text eol=lf
+Dockerfile*     text eol=lf
+.gitattributes  text eol=lf
+.gitignore      text eol=lf
+
+# Text assets and data files. A handful of these had CRLF committed
+# historically (icons under services/kaldheimorg, Turnus CSVs under
+# services/pappaperm); they were renormalized to LF when this file landed.
+*.svg           text eol=lf
+*.csv           text eol=lf
+*.html          text eol=lf
+*.txt           text eol=lf
+
+# Binary formats git's text auto-detection must never touch. A mostly-ASCII
+# PDF (golden fixtures) would otherwise be CRLF-smudged on checkout, which
+# corrupts its xref byte offsets.
+*.pdf           binary
+
+*.dart         text eol=lf

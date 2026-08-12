@@ -1,0 +1,99 @@
+{
+  "pubName": "famn_sdk",
+  "browserClient": false,
+  "pubVersion": "1.0.0",
+  "useEnumExtension": true,
+  "pruneUnusedModels": true,
+  "keepModel": [
+    "ImageSize",
+    "MealPlannerFilter",
+    "NotificationConfig",
+    "ErrorResponse",
+    "KobleRegistryConflict",
+    "KobleRegistryConflictEntity"
+  ],
+  "nativeEnums": {
+    "DevicePlatform": [
+      "web",
+      "ios",
+      "android",
+      "linux",
+      "other"
+    ],
+    "ItemKind": [
+      "inventory",
+      "valuable_asset"
+    ],
+    "ItemCondition": [
+      "new",
+      "good",
+      "fair",
+      "poor"
+    ],
+    "SubjectType": [
+      "property",
+      "holding_item",
+      "external_ref"
+    ],
+    "ValuationType": [
+      "purchase",
+      "user_estimate",
+      "market",
+      "insurance"
+    ],
+    "SnapshotStatus": [
+      "pending",
+      "ready",
+      "failed"
+    ],
+    "ExportFormat": [
+      "json",
+      "pdf",
+      "zip"
+    ],
+    "ArchiveReason": [
+      "insurance_snapshot"
+    ],
+    "ExportStatus": [
+      "pending",
+      "ready",
+      "failed"
+    ],
+    "TrailerKind": [
+      "flatbed",
+      "box",
+      "boat",
+      "machine",
+      "car_transport",
+      "livestock",
+      "bike",
+      "other"
+    ],
+    "TowedKind": [
+      "caravan",
+      "trailer"
+    ],
+    "VehicleKind": [
+      "car",
+      "motorcycle",
+      "moped",
+      "van",
+      "truck",
+      "bus",
+      "motorhome",
+      "other"
+    ],
+    "KobleSignalAvailability": [
+      "available",
+      "unsupported",
+      "permission_missing",
+      "unavailable"
+    ],
+    "KobleSmartcarConnectionStatus": [
+      "pending",
+      "active",
+      "action_required",
+      "disconnected"
+    ]
+  }
+}

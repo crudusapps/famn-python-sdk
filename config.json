@@ -1,7 +1,7 @@
 {
   "pubName": "famn_sdk",
   "browserClient": false,
-  "pubVersion": "1.0.0",
+  "pubVersion": "1.0.1",
   "useEnumExtension": true,
   "pruneUnusedModels": true,
   "keepModel": [

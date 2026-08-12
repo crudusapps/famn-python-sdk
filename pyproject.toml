@@ -3,7 +3,7 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "famn-sdk"
+name = "famnsdk"
 version = "1.0.0"
 description = "Swagger API client"
 readme = "README.md"

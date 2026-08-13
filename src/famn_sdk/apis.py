@@ -8801,6 +8801,29 @@ class SpaceApi:
             response_type=None,
         )
 
+    async def notify_space_endpoint(self, id: str, *, body: NotifySpaceRequest | None = None) -> NotifySpaceResponse:
+        "Notify the members of a space # Send a push notification to every member of the space, or one member. Paired devices (e.g. Home Assistant automations) use this to reach the family's phones; the notification also lands in the in-app inbox."
+        request_path = "/api/v1/spaces/{id}/notify"
+        request_path = request_path.replace("{id}", quote(_query_value(id), safe=""))
+        request_query: list[tuple[str, str]] = []
+        request_headers: dict[str, str] = {}
+        request_body: Any = None
+        request_form: dict[str, Any] = {}
+        request_files: dict[str, FileValue] = {}
+        request_body = body
+        return await self.api_client.request(
+            "POST",
+            request_path,
+            query=request_query,
+            headers=request_headers,
+            body=request_body,
+            form=request_form,
+            files=request_files,
+            content_type="application/json",
+            auth_names=["Bearer"],
+            response_type=NotifySpaceResponse,
+        )
+
     async def open_invitation_to_space_endpoint(self, id: str) -> Invitation:
         "Open invitation # Creates a open invitation to a space to use in for example a qr-code"
         request_path = "/api/v1/spaces/{id}/open-invitation"

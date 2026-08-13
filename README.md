@@ -1,8 +1,8 @@
-# famn-sdk
+# famnsdk
 
 Swagger API client
 
-This asynchronous Python SDK was generated from Swagger API version 1.0.2.
+This asynchronous Python SDK was generated from Swagger API version 1.0.0.
 It uses `aiohttp` and can reuse the session managed by Home Assistant.
 
 ## Installation

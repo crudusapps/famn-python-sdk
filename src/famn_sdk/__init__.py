@@ -5,7 +5,7 @@ from .apis import *
 from .exceptions import ApiError
 from .models import *
 
-__version__ = "1.0.1"
+__version__ = "1.0.4"
 
 __all__ = [
     "ApiClient",
@@ -325,6 +325,8 @@ __all__ = [
     "NotificationData",
     "NotificationDataSender",
     "NotificationSetting",
+    "NotifySpaceRequest",
+    "NotifySpaceResponse",
     "NullTime",
     "Nutrient",
     "ObjectStatus",

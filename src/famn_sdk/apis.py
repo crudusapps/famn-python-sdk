@@ -1132,11 +1132,14 @@ class CalendarApi:
             response_type=CalendarEvent,
         )
 
-    async def get_calendar_events_endpoint(self, id: str) -> list[CalendarEvent]:
-        "Get events for a calendar"
+    async def get_calendar_events_endpoint(self, id: str, *, from_: str | None = None, to: str | None = None, expand: bool | None = None) -> list[CalendarEvent]:
+        "Get events for a calendar Optionally restricted to a time range with `from`/`to` (RFC3339). With `expand=true` recurring events are replaced by their concrete occurrences within the range, honoring EXDATEs, per-occurrence exceptions, and detached instances; a range is then required."
         request_path = "/api/v1/calendars/{id}/events"
         request_path = request_path.replace("{id}", quote(_query_value(id), safe=""))
         request_query: list[tuple[str, str]] = []
+        _add_query(request_query, "from", from_, "")
+        _add_query(request_query, "to", to, "")
+        _add_query(request_query, "expand", expand, "")
         request_headers: dict[str, str] = {}
         request_body: Any = None
         request_form: dict[str, Any] = {}

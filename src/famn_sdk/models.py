@@ -12633,7 +12633,7 @@ class ListItem:
     # Reference to ingredient associated with this list item
     ingredient_ref: str | None = None
     is_frozen: bool | None = None
-    list: ListModel | None = None
+    list_: ListModel | None = None
     # Reference to list item associated with this list item
     list_item_ref: str | None = None
     product: Product | None = None
@@ -12679,7 +12679,7 @@ class ListItem:
             ingredient=_deserialize(data.get("ingredient"), Ingredient | None),
             ingredient_ref=_deserialize(data.get("ingredientRef"), str | None),
             is_frozen=_deserialize(data.get("isFrozen"), bool | None),
-            list=_deserialize(data.get("list"), ListModel | None),
+            list_=_deserialize(data.get("list"), ListModel | None),
             list_item_ref=_deserialize(data.get("listItemRef"), str | None),
             product=_deserialize(data.get("product"), Product | None),
             product_category_ref=_deserialize(data.get("productCategoryRef"), str | None),
@@ -12733,8 +12733,8 @@ class ListItem:
             result["ingredientRef"] = _serialize(self.ingredient_ref)
         if self.is_frozen is not None:
             result["isFrozen"] = _serialize(self.is_frozen)
-        if self.list is not None:
-            result["list"] = _serialize(self.list)
+        if self.list_ is not None:
+            result["list"] = _serialize(self.list_)
         if self.list_item_ref is not None:
             result["listItemRef"] = _serialize(self.list_item_ref)
         if self.product is not None:
@@ -12947,7 +12947,7 @@ class ListItemOccurrence:
     ingredient_ref: str | None = None
     is_frozen: bool | None = None
     last_purchase_age: float | None = None
-    list: ListModel | None = None
+    list_: ListModel | None = None
     # Reference to list item associated with this list item
     list_item_ref: str | None = None
     occurrence_age: float | None = None
@@ -12998,7 +12998,7 @@ class ListItemOccurrence:
             ingredient_ref=_deserialize(data.get("ingredientRef"), str | None),
             is_frozen=_deserialize(data.get("isFrozen"), bool | None),
             last_purchase_age=_deserialize(data.get("lastPurchaseAge"), float | None),
-            list=_deserialize(data.get("list"), ListModel | None),
+            list_=_deserialize(data.get("list"), ListModel | None),
             list_item_ref=_deserialize(data.get("listItemRef"), str | None),
             occurrence_age=_deserialize(data.get("occurrenceAge"), float | None),
             occurrence_count=_deserialize(data.get("occurrenceCount"), int | None),
@@ -13059,8 +13059,8 @@ class ListItemOccurrence:
             result["isFrozen"] = _serialize(self.is_frozen)
         if self.last_purchase_age is not None:
             result["lastPurchaseAge"] = _serialize(self.last_purchase_age)
-        if self.list is not None:
-            result["list"] = _serialize(self.list)
+        if self.list_ is not None:
+            result["list"] = _serialize(self.list_)
         if self.list_item_ref is not None:
             result["listItemRef"] = _serialize(self.list_item_ref)
         if self.occurrence_age is not None:
@@ -13309,7 +13309,7 @@ class ListUserLink:
     id: UUID | None = None
     # Is the default list
     is_default: bool | None = None
-    list: ListModel | None = None
+    list_: ListModel | None = None
     list_id: UUID | None = None
     # Is the list muted
     muted: bool | None = None
@@ -13338,7 +13338,7 @@ class ListUserLink:
             deleted_by=_deserialize(data.get("deletedBy"), UUID | None),
             id=_deserialize(data.get("id"), UUID | None),
             is_default=_deserialize(data.get("isDefault"), bool | None),
-            list=_deserialize(data.get("list"), ListModel | None),
+            list_=_deserialize(data.get("list"), ListModel | None),
             list_id=_deserialize(data.get("listId"), UUID | None),
             muted=_deserialize(data.get("muted"), bool | None),
             muted_until=_deserialize(data.get("mutedUntil"), datetime | None),
@@ -13368,8 +13368,8 @@ class ListUserLink:
             result["id"] = _serialize(self.id)
         if self.is_default is not None:
             result["isDefault"] = _serialize(self.is_default)
-        if self.list is not None:
-            result["list"] = _serialize(self.list)
+        if self.list_ is not None:
+            result["list"] = _serialize(self.list_)
         if self.list_id is not None:
             result["listId"] = _serialize(self.list_id)
         if self.muted is not None:

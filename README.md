@@ -1,14 +1,15 @@
 # famnsdk
 
-Swagger API client
+Async Python client for the [Famn](https://famn.app) family organizer API.
 
-This asynchronous Python SDK was generated from Swagger API version 1.0.0.
-It uses `aiohttp` and can reuse the session managed by Home Assistant.
+Generated from the Famn OpenAPI description. It uses `aiohttp` and can reuse a
+session owned by the caller, which is how the Home Assistant integration
+consumes it.
 
 ## Installation
 
 ```bash
-pip install .
+pip install famnsdk
 ```
 
 ## Usage
@@ -25,3 +26,14 @@ async def example(session):
 An injected `aiohttp.ClientSession` remains owned by the caller. If no session
 is supplied, use `async with ApiClient() as client:` so the generated client
 closes the session it creates.
+
+## Releasing
+
+Releases are published to PyPI by the `Upload Python Package` GitHub Actions
+workflow, using PyPI trusted publishing, when a GitHub release is created.
+Bump `version` in `pyproject.toml`, `__version__` in `src/famn_sdk/__init__.py`
+and `packageVersion` in `config.json`, then tag and publish the release.
+
+## License
+
+[MIT](LICENSE)

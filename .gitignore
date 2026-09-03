@@ -24,3 +24,11 @@
 .claude/
 **/vendor/bundle
 .secrets
+
+# Python build artifacts
+build/
+dist/
+*.egg-info/
+__pycache__/
+.venv/
+

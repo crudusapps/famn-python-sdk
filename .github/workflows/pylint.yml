@@ -30,3 +30,18 @@ jobs:
         run: |
           python -m pylint --py-version=3.11 --errors-only \
             $(git ls-files '*.py')
+
+  handwritten:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Check hand-written content survived code generation
+        run: python scripts/check_handwritten.py
+

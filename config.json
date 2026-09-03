@@ -3,7 +3,7 @@
   "distributionName": "famnsdk",
   "browserClient": false,
   "pubVersion": "1.0.2",
-  "packageVersion": "1.0.5",
+  "packageVersion": "1.0.6",
   "useEnumExtension": true,
   "pruneUnusedModels": true,
   "keepModel": [

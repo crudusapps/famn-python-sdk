@@ -23,3 +23,4 @@
 .env
 .claude/
 **/vendor/bundle
+.secrets

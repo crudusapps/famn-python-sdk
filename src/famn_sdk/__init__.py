@@ -5,7 +5,7 @@ from .apis import *
 from .exceptions import ApiError
 from .models import *
 
-__version__ = "1.0.6"
+__version__ = "1.0.7"
 
 __all__ = [
     "ApiClient",

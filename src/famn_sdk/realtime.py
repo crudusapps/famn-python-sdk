@@ -21,6 +21,7 @@ from typing import Any
 import aiohttp
 
 from .api_client import ApiClient
+from .exceptions import ApiError
 
 LOGGER = logging.getLogger(__name__)
 
@@ -128,9 +129,11 @@ class RealtimeClient:
     async def listen(self) -> AsyncIterator[Message]:
         """Yield gateway messages until the caller stops consuming them.
 
-        Connection failures are retried with an exponential backoff, so the
-        iterator ends only when it is cancelled or when the token provider
-        raises — a rejected device cannot be fixed by reconnecting.
+        Connection failures, including transient `ApiError`s from the token
+        provider, are retried with an exponential backoff. The iterator ends
+        only when it is cancelled or when the token provider raises something
+        that is not an `ApiError` — a caller signalling dead credentials,
+        which reconnecting cannot fix.
         """
         backoff = _Backoff()
         while True:
@@ -141,7 +144,11 @@ class RealtimeClient:
                     # a rejection must not reset the backoff.
                     healthy = healthy or isinstance(message, Connected)
                     yield message
-            except (aiohttp.ClientError, TimeoutError) as err:
+            except (ApiError, aiohttp.ClientError, TimeoutError) as err:
+                # ApiError comes from the token provider; a transient failure
+                # to mint a token is retried like any transport failure.
+                # Anything the provider raises that is not ours — a caller's
+                # own "these credentials are dead" exception — propagates.
                 LOGGER.debug("Famn realtime connection failed: %s", err)
 
             if healthy:
